@@ -1,0 +1,9 @@
+.vscode/
+db.sqlite3
+manage.py
+core/__pycache__
+services/__pycache__
+webempresa/__pycache__
+core/static
+services/migrations/__pycache__
+core/migrations/__pycache__
