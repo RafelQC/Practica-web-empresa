@@ -21,6 +21,12 @@ from django.conf import settings
 urlpatterns = [
     #afegim totes les URL que tenim a CORE sense haver d'importar les views aquí
     path('', include('core.urls')),
+    #afegim les URL de services
+    path('services/', include('services.urls')),
+    #afegim les URL de blog
+    path('blog/', include('blog.urls')),
+    #afegim les URL de pages
+    path('page/', include('pages.urls')),
     #Paths del admin
     path('admin/', admin.site.urls), 
 ]

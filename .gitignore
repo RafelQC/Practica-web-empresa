@@ -7,3 +7,11 @@ webempresa/__pycache__
 core/static
 services/migrations/__pycache__
 core/migrations/__pycache__
+blog/__pycache__
+blog/migrations/__pycache__
+media/
+pages/__pycache__
+pages/migrations/__pycache__
+pages/templatetags/__pycache__
+social/__pycache__
+social/migrations/__pycache__

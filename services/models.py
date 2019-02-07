@@ -1,11 +1,12 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
 class Services(models.Model):
     title = models.CharField(max_length=200, verbose_name='Título')
     subtitle = models.CharField(max_length=200, verbose_name='Subtítulo')
-    content = models.TextField(verbose_name='Contenido')
+    content = RichTextField(verbose_name='Contenido')
     img = models.ImageField(verbose_name='Imagen', upload_to='services')
     #datetime = camp de data i hora (auto_now_add=True, aquest cap s'auto emplenará amb l'hora real que se crei)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado día')
