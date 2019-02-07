@@ -17,29 +17,50 @@
                   <span class="section-heading-upper">Envíanos tus dudas</span>
                   <span class="section-heading-lower">Contacto</span>
                 </h2>
-
+                <!-- si hemos comprobado que el mensaje se ha enviado correctamente enviamos un mensaje de OK -->
+                <!-- como el OK lo mandamos por URL lo comprobamos con GET -->
+                {% if 'ok' in request.GET %}
+                    <p><b>Su mensaje se ha enviado correctamente.</b></p>
+                {% endif %}
+                {% if 'fail' in request.GET %}
+                    <p><b>Algo no ha ido bien, intentalo más tarde. :_(</b></p>
+                {% endif %}
+                <!-- action indica en que pagina tiene que validar este formulario o enviar estos datos, si se deja vacio lo hará aquí mismo -->
+                <!-- method GET=visible a simple vista (problema con contraseñas porque son visibles) POST=no son visibles, oculta los datos -->
+                <!-- <form action="" method="POST">
+                     seguridad de la pagina contra CSRF https://es.wikipedia.org/wiki/Cross-site_request_forgery
+                    {% csrf_token %}
+                    <table>
+                        {{form.as_table}}
+                    </table>
+                    creamos boton de enviar
+                    <input type="submit" value="Enviar" />
+                </form> -->
+                <!-- diccionario donde se guarda el formulario -->
+                <!-- {{request.POST}} -->
                 <!-- Formulario de contacto -->
-                <form>
+                <form action="" method="POST">  
+                    {% csrf_token %}
                     <div class="form-group">
                         <label>Nombre *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control">
+                            {{form.name}}
                         </div>
+                        {{form.name.errors}}
                     </div>
                     <div class="form-group">
                         <label>Email *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control">
+                            {{form.email}}
                         </div>
-                        <ul class="errorlist">
-                            <li>El email no es correcto.</li>
-                        </ul>
+                        {{form.email.errors}}
                     </div>
                     <div class="form-group">
                         <label>Mensaje *</label>
                         <div class="input-group">
-                            <textarea class="form-control"></textarea>
+                            {{form.content}}
                         </div>
+                        {{form.content.errors}}
                     </div>
                     <div class="text-center">
                         <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">

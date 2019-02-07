@@ -15,3 +15,5 @@ pages/migrations/__pycache__
 pages/templatetags/__pycache__
 social/__pycache__
 social/migrations/__pycache__
+contact/__pycache__
+contact/migrations/__pycache__
